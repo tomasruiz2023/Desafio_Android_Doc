@@ -1,0 +1,54 @@
+Escenario: Sistema de Reservas de Vuelos 
+Descripción Un aeropuerto necesita desarrollar un nuevo sistema para gestionar las reservas de vuelos. El sistema debe permitir a los pasajeros buscar vuelos disponibles, reservar asientos y cancelar reservas. Además, el sistema deberá gestionar información sobre los vuelos, los aviones y los pasajeros. 
+
+Requisitos 
+----------
+Gestión de Pasajeros: El sistema debe mantener un registro de todos los pasajeros, incluyendo nombre, documento de identidad y contacto. 
+
+Gestión de Vuelos: Se debe registrar información sobre cada vuelo, como el número de vuelo, los aeropuertos de origen y destino, la fecha y hora de salida y llegada, y el avión asignado a cada vuelo. 
+
+Gestión de Aviones: Cada avión tiene un modelo, capacidad de asientos y un identificador único.
+
+Reservas: Los pasajeros pueden realizar reservas para vuelos específicos. Cada reserva tiene un código único, y el sistema debe poder rastrear qué asientos están reservados en cada vuelo. 
+
+Cancelaciones: Los pasajeros pueden cancelar sus reservas. Esto debe actualizar la disponibilidad de asientos en el vuelo correspondiente.
+
+Desafío de Diagramación
+------------------------
+Debes crear un diagrama de clases que modele este sistema, considerando las siguientes asociaciones: 
+- Asociación entre Pasajeros y Reservas: Los pasajeros pueden tener múltiples reservas, y cada reserva está asociada a un solo pasajero. 
+
+- Asociación entre Vuelos y Reservas: Cada reserva corresponde a un vuelo específico, pero un vuelo puede tener múltiples reservas. 
+
+- Asociación entre Aviones y Vuelos: Cada vuelo está asignado a un único avión, pero un avión puede ser asignado a múltiples vuelos a lo largo del tiempo. 
+
+- Composición entre Vuelos y Aviones: Aunque un avión puede estar en varios vuelos, cada instancia de un vuelo está compuesta por un único avión específico en ese momento.
+
+
+
+
+
+- Aviones:
+	id_avion, 
+	modelo, 
+	capacidadAsientos
+- Pasajeros:
+	nombre,
+	id_pasajero, 
+	contacto
+	
+- Vuelo:
+	id_vuelo,
+	id_reserva
+	origen,
+	destino, 
+	fechaHoraSalida,
+	fechaHoraLlegada,
+	id_avion
+
+
+- ReservaVuelos:
+	id_reserva,
+	id_asiento,
+	id_pasajero
+
